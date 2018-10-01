@@ -6,7 +6,12 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+     <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
