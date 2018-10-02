@@ -5,7 +5,8 @@ const api = {
 				return axios.get("/tweets")
 			},
 			'create':function(params){
-				return axios.post('/tweets',data:params)
+				console.log(params)
+				return axios.post('/tweets',params)
 			}
 	},
 }

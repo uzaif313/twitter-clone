@@ -6,10 +6,10 @@ class Tweet extends React.Component {
     return (
       <React.Fragment>
 				<li className="collection-item avatar">
-		      <i className="material-icons circle">person_pin</i>
-		      <span className="title">{this.props.body}</span>
-		      	<p>{this.props.author} <br/>
-		      </p>
+		      <img className='circle' src={this.props.gravatar}/>
+		      <span className="title">{this.props.display_name}</span>
+		      	<p>{this.props.body}</p>
+		      	<time>{this.props.formatedDate}</time>
 		      <a href="#!" className="secondary-content">
 		      	<i className="material-icons">grade</i>
 		      </a>

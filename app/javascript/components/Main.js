@@ -2,6 +2,7 @@ import React from 'react'
 import TweetBox from './TweetBox'
 import TweetList from './TweetList'
 import api from '../helpers/api'
+import Moment from 'moment';
 class Main extends React.Component {
 	constructor(props){
 		console.log(api)
@@ -12,14 +13,29 @@ class Main extends React.Component {
 	}
 
 	componentDidMount(){
+		api.tweets.list()
+							.then((data)=>{
+								this.setState(this.formattedTweets(data.data))
+							})
 
-		api.tweets.list().then((data)=>{this.setState({tweetList:data.data})})
+	}
+
+	formattedTweets(tweetList){
+		const formattedTweets = tweetList.map((tweet)=>{
+			tweet.formatedDate = new Moment(tweet.created_at).fromNow()
+			return tweet
+		})
+		return {
+			tweetList:formattedTweets
+		}
 	}
 
 	addTweet(val){
-		let tweets = this.state.tweetList;
-		tweets.unshift({id:Date.now(), body:val, author: 'Guest'})
-		this.setState({tweetList:tweets})
+		 api.tweets.create({'body':val}).then((newTweet)=>{
+			let tweets = this.state.tweetList;
+			tweets.unshift(newTweet.data)
+			this.setState(this.formattedTweets(tweets))
+		 }) 
 	}
   render () {
     return (

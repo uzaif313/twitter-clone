@@ -11,7 +11,7 @@ class TweetBox extends React.Component {
 	      <div className="row">
 	      	<form onSubmit={this.sendTweet.bind(this)}>
 	      		<div className='input-field'>
-		      		<textarea ref="tweet" className="materialize-textarea"/>
+		      		<textarea ref="tweet" name='body' className="materialize-textarea"/>
 		      		<label>What's happening</label>
 		      		<button type="submit" className="btn right">Tweet</button>
 	      		</div>

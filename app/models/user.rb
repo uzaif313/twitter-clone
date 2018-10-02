@@ -9,4 +9,9 @@ class User < ApplicationRecord
   def display_name
   	"#{firstname} #{lastname}"
   end       
+
+   def gravatar
+  	hash = Digest::MD5.hexdigest(email)
+  	"http://gravatar.com/avatar/#{hash}"
+  end
 end

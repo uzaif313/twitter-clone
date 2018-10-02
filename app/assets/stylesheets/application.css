@@ -17,3 +17,9 @@
  body{
  	padding: 1em;
  }
+
+ time{
+ 	display:block;
+ 	color:#ddd;
+ 	font-size: 0.8em;
+ }
