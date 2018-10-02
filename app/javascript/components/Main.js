@@ -1,18 +1,19 @@
 import React from 'react'
 import TweetBox from './TweetBox'
 import TweetList from './TweetList'
-const mockTweet =[
-	{id:1,body:"Body 1",author:"Uzaif Nilger"},
-	{id:2,body:"Body 2",author:"Uzaif Nilger"},
-	{id:3,body:"Body 3",author:"Uzaif Nilger"},
-	{id:4,body:"Body 4",author:"Uzaif Nilger"}
-]
+import api from '../helpers/api'
 class Main extends React.Component {
 	constructor(props){
+		console.log(api)
 		super(props)
 		this.state = {
 			tweetList:[]
 		}
+	}
+
+	componentDidMount(){
+
+		api.tweets.list().then((data)=>{this.setState({tweetList:data.data})})
 	}
 
 	addTweet(val){
